@@ -1,13 +1,7 @@
-package com.example.mockservice.model;
+package com.example.mockservice.learning;
 
 import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
 
-@Data
-@ToString
-@Getter
 @Builder
 public class BuilderLearn {
     private String firstName;
