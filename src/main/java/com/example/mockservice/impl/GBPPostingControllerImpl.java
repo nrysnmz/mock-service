@@ -1,8 +1,10 @@
 package com.example.mockservice.impl;
 
 import com.example.mockservice.gbpController.GBPPostingController;
+import com.example.mockservice.model.Error;
 import com.example.mockservice.model.GBPPostingRequestBody;
 import jakarta.persistence.Entity;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ public class GBPPostingControllerImpl implements GBPPostingController {
 
     private String SUCCESS = "SUCCESS";
     private String BAD_REQUEST = "BAD_REQUEST";
+    private String TIMEOUT  = "TIMEOUT";
 
     private List<String> supportedResponseTypes = List.of(SUCCESS, BAD_REQUEST);
     private String requestedResponseType = SUCCESS;
@@ -24,10 +27,17 @@ public class GBPPostingControllerImpl implements GBPPostingController {
         return ResponseEntity.status(HttpStatus.OK).body("GBPPosting " + responseType + " supported response types " + supportedResponseTypes);
     }
 
-//    @Override
+    @Override
     ResponseEntity<Objects> requestGBPPosting (GBPPostingRequestBody postingRequestBody, HttpHeaders httpHeaders) throws InterruptedException{
 
-        return ResponseEntity.status(HttpStatus.OK).build();
+        if(StringUtils.equalsAnyIgnoreCase(requestedResponseType, TIMEOUT)){
+                Thread.sleep(2000);
+            return ResponseEntity.status(HttpStatus.GATEWAY_TIMEOUT).build();
+        }else if(StringUtils.equalsAnyIgnoreCase(requestedResponseType,BAD_REQUEST)){
+            var errorResponse = Error.builder().statusCode(400).errorDescription("failed").build();
+            return ResponseEntity.badRequest().body(errorResponse);
+        }
+
 
     }
 }
