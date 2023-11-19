@@ -11,4 +11,5 @@ import lombok.extern.jackson.Jacksonized;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Jacksonized
 public class GBPPostingRequestBody {
+    String loanAccountNumber;
 }
