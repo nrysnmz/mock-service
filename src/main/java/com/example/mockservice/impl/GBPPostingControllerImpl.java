@@ -1,19 +1,22 @@
 package com.example.mockservice.impl;
 
 import com.example.mockservice.gbpController.GBPPostingController;
-import com.example.mockservice.model.DebitPostingServiceResponse;
 import com.example.mockservice.model.Error;
 import com.example.mockservice.model.GBPPostingRequestBody;
 import com.example.mockservice.model.GBPPostingResponseBody;
-import jakarta.persistence.Entity;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Objects;
 
+@RestController
+@RequiredArgsConstructor
+@Slf4j
 public class GBPPostingControllerImpl implements GBPPostingController {
 
     private String SUCCESS = "SUCCESS";
@@ -30,7 +33,7 @@ public class GBPPostingControllerImpl implements GBPPostingController {
     }
 
     @Override
-    ResponseEntity<Objects> requestGBPPosting(GBPPostingRequestBody postingRequestBody, HttpHeaders httpHeaders) throws InterruptedException {
+    public ResponseEntity<Object> requestGBPPosting(GBPPostingRequestBody postingRequestBody, HttpHeaders httpHeaders) throws InterruptedException {
 
         if (StringUtils.equalsAnyIgnoreCase(requestedResponseType, TIMEOUT)) {
             Thread.sleep(2000);
@@ -49,11 +52,15 @@ public class GBPPostingControllerImpl implements GBPPostingController {
 
             return GBPPostingResponseBody.builder();
 
+
         }
 
         GBPPostingResponseBody mockGBPPostingResponseBodyCompleted(){
 
+            GBPPostingResponseBody gbpPostingResponseBodyBuilder =GBPPostingResponseBody.builder().transactionIdentifier("3443").transactionStatusCode("TRANSACTION_RETRYABLE").build();
+            return GBPPostingResponseBody.builder();
         }
 
     }
+
 }

@@ -1,5 +1,6 @@
 package com.example.mockservice.gbpController;
 
+import com.example.mockservice.annotations.CcbHttpHeaders;
 import com.example.mockservice.model.GBPPostingRequestBody;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public interface GBPPostingController {
 
 
-//    @PostMapping
-//    default ResponseEntity<Object> requestGBPPosting(@Valid @RequestBody GBPPostingRequestBody gbpPostingRequestBody,
-//                                                     @Valid @CcbHttpHeaders @RequestHeader HttpHeaders httpHeaders) throws InterruptedException{
-//        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
-//    }
+    @PostMapping
+    default ResponseEntity<Object> requestGBPPosting(@Valid @RequestBody GBPPostingRequestBody gbpPostingRequestBody,
+                                                     @Valid @CcbHttpHeaders @RequestHeader HttpHeaders httpHeaders) throws InterruptedException{
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+    }
 
 
     @GetMapping
