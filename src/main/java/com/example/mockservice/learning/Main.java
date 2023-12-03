@@ -12,7 +12,10 @@ public class Main {
         int roomNumber = read.nextInt();
         Customer customer = new Customer();
         //set customer's data to object here
-
+        customer.setName(firstName);
+        customer.setSecondName(secondName);
+        customer.setAge(age);
+        customer.setRoomNumber(roomNumber);
 
         customer.saveCustomerInfo();
     }
@@ -21,15 +24,44 @@ public class Main {
 class Customer {
     //add all necessary attributes here
     private String firstName;
-    private static String num;
     private String secondName;
     private int age;
     private int roomNumber;
-    public void setName() {
+
+    public void setName(String firstName) {
+        this.firstName = firstName;
+
     }
-    void a(String firstName){
-        System.out.println(firstName);
+
+    public String getName() {
+        return firstName;
     }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+
     public void saveCustomerInfo() {
         System.out.println("First name: " + firstName);
         System.out.println("Second name: " + secondName);
