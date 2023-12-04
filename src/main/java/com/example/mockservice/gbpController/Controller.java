@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping
 public class Controller {
 
-    @GetMapping("/test")
-    public ResponseEntity<String> add() {
+    @PostMapping("/test")
+    public String getExample(@RequestHeader(value = "Accept") String acceptHeader) {
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("be careful");
+
+        return "hi";
     }
-
 }
