@@ -31,3 +31,39 @@ public class Main {
         }
     }
 }
+//public class SystemTimeZoneExample {
+//    public static void main(String[] args) {
+//        // Get the system's default time zone
+//        ZoneId systemTimeZone = ZoneId.systemDefault();
+//
+//        // Get the current date and time in the system's default time zone
+//        LocalDateTime localDateTime = LocalDateTime.now(systemTimeZone);
+//
+//        // Format the date and time
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        String systemLocalDateTimeString = localDateTime.format(formatter);
+//
+//        System.out.println("System's Local Date and Time: " + systemLocalDateTimeString);
+//    }
+//}
+
+
+//public class SystemTimeZoneExample {
+//    public static void main(String[] args) {
+//        // Get the system's default time zone
+//        ZoneId userTimeZone = ZoneId.systemDefault();
+//
+//        // Get the current date and time in the system's default time zone
+//        LocalDateTime localDateTime = LocalDateTime.now(userTimeZone);
+//
+//        // Format the date and time
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        String systemLocalDateTime = localDateTime.format(dateTimeFormatter);
+//
+//        System.out.println("System's Local Date and Time: " + systemLocalDateTime);
+//    }
+//}
+
+
+
+
