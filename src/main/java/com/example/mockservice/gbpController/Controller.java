@@ -17,4 +17,11 @@ public class Controller {
 
         return "hi";
     }
+
+    @GetMapping("/test")
+    public String getExample1(@RequestHeader(value = "Accept") String acceptHeader) {
+
+
+        return "Hi Nuraycim";
+    }
 }
