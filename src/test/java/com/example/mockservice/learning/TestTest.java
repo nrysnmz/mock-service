@@ -17,4 +17,16 @@ class TestTest {
         assertEquals(165, result, "The addition result should be 8");
     }
 
+    @org.junit.jupiter.api.Test
+    public void testAddition1() {
+        // Arrange
+
+        Test add = new Test();
+
+        // Act
+        int result = add.addition(9, 7);
+
+        // Assert
+        assertEquals(165, result, "The addition result should be 8");
+    }
 }
